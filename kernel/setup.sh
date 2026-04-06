@@ -2,8 +2,8 @@
 set -eu
 
 GKI_ROOT=$(pwd)
-OWNER="KernelSU-Next"
-REPO="$OWNER"
+OWNER="MDonip"
+REPO="KernelSU-Next"
 
 display_usage() {
     echo "Usage: $0 [--cleanup | <commit-or-tag>]"
@@ -47,7 +47,7 @@ setup_kernelsu() {
 
     BRANCH="$(git rev-parse --abbrev-ref origin/HEAD | sed 's@^origin/@@')"
     if [ "$(git status | grep -Po 'v\d+(\.\d+)*' | head -n1)" ]; then
-        git checkout $BRANCH && echo "[-] Switched to $BRANCH branch."
+        git checkout legacy && echo "[-] Switched to legacy branch."
     fi
 
     git pull && echo "[+] Repository updated."
